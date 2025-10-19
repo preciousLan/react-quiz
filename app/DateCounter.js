@@ -1,6 +1,7 @@
 'use client';
 import { useReducer } from 'react';
 
+const initialState = { count: 0, step: 1 };
 function reducer(state, action) {
 	switch (action.type) {
 		case 'des':
@@ -10,7 +11,7 @@ function reducer(state, action) {
 		case 'setcount':
 			return { ...state, count: action.payload };
 		case 'reset':
-			return { ...state, count: 0, step: 1 };
+			return  initialState ;
 		case 'setStep':
 			return { ...state, step: action.payload };
 		default:
@@ -19,7 +20,6 @@ function reducer(state, action) {
 }
 
 function DateCounter() {
-	const initialState = { count: 0, step: 1 };
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const { count, step } = state;
 
